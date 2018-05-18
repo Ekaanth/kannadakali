@@ -1,7 +1,6 @@
 # kannadakali
 
-This is a pet project of mine where im trying to teach non kannada people to learn kannada on a daily basis for basic communication with karnataka people.
-This project will be initally hosted on heruoku and later will be hosted on domain.
+This is a pet project of mine where I'm trying to teach non-Kannadiga people to learn Kannada on a daily basis for basic communication with Karnataka people.
+This project will be initially hosted on Heroku and later will be hosted on the domain.
 
-Here, peoplewho want to learn kannada can register themself and then every day a newsletter will be distatched to their mail, which maily consists of one basic sentence in english and its translation in kannada.s
-s
+Here, people who want to learn Kannada can register themselves and then every day a newsletter will be dispatched to their mail, which mainly consists of one basic sentence in English and its translation in Kannada.
