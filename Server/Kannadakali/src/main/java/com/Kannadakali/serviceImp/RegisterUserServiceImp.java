@@ -25,7 +25,6 @@ public class RegisterUserServiceImp implements RegisterUserService {
 		RegisterUser entity = new RegisterUser();
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 		entity.setTimestamp(timeStamp);
-		entity.setUstatus(Status.ACTIVE);
 		return registerUserRepo.save(entity);
 	}
 
@@ -35,6 +34,15 @@ public class RegisterUserServiceImp implements RegisterUserService {
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 		entity.setUnsubscribedtimestamp(timeStamp);
 		entity.setUstatus(Status.INACTIVE);
+		return registerUserRepo.save(entity);
+	}
+
+	@Override
+	public RegisterUser subscribeRegisterUser(String uemail) {
+		RegisterUser entity = registerUserRepo.findByUemail(uemail);
+		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+		entity.setSubscribedtimestamp(timeStamp);
+		entity.setUstatus(Status.ACTIVE);
 		return registerUserRepo.save(entity);
 	}
 }

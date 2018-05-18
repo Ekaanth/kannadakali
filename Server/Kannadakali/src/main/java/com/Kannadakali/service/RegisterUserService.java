@@ -8,4 +8,6 @@ public interface RegisterUserService {
 
 	RegisterUser unsubscribeRegisterUser(String uemail);
 
+	RegisterUser subscribeRegisterUser(String uemail);
+
 }

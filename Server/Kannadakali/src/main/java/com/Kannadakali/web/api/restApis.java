@@ -28,11 +28,30 @@ public class restApis {
 	@Autowired
 	RegisterUserService registerUserService;
 	
+	/**
+     * Web service endpoint to add new entry on every page visit.
+     * 
+     * 
+     * @RequestBody is of the type Page visit object which will load the ip address of the user.
+     * 
+     * @return it Returns HttpStatus as OK.
+     */
+	
 	@RequestMapping(value = ("/pagevisit"), method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Pagevisit> registerIp(@RequestBody Pagevisit visit) {
 		Pagevisit resp = pagevisitservice.addVisitedUser(visit);
 		return new ResponseEntity<Pagevisit>(HttpStatus.OK);
 	}
+	
+	/**
+     * Web service endpoint to add new User details.
+     * 
+     * 
+     * @RequestBody is of the type RegisterUser object which will save the user details and send an email 
+     * of confirmation of the email for further postes.
+     * 
+     * @return it Returns HttpStatus as OK.
+     */
 	
 	@RequestMapping(value = ("/registeruser"), method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Pagevisit> registerUser(@RequestBody RegisterUser user) {
@@ -40,6 +59,32 @@ public class restApis {
 		return new ResponseEntity<Pagevisit>(HttpStatus.OK);
 	}
 	
+	/**
+     * Web service endpoint to subscribe user details.
+     * 
+     * 
+     * @RequestBody is of the type gets the user email and find the user
+     * from the db and unsubscribe them.
+     * 
+     * @return it Returns HttpStatus as OK.
+     */
+	
+	@RequestMapping(value = ("/subscribeuser"), method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Pagevisit> subscribeUser(@PathVariable String uemail) {
+		RegisterUser resp = registerUserService.subscribeRegisterUser(uemail);
+		return new ResponseEntity<Pagevisit>(HttpStatus.OK);
+	}
+	
+	
+	/**
+     * Web service endpoint to unsubscribe user details.
+     * 
+     * 
+     * @RequestBody @RequestBody is of the type gets the user email and find the user
+     * from the db and unsubscribe them.
+     * 
+     * @return it Returns HttpStatus as OK.
+     */
 	@RequestMapping(value = ("/unsubscribe"), method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Pagevisit> unsubscribeRegisterUser(@PathVariable String uemail) {
 		RegisterUser resp = registerUserService.unsubscribeRegisterUser(uemail);
