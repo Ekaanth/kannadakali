@@ -1,9 +1,13 @@
 package com.Kannadakali.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.Kannadakali.constant.Status;
 
 @Entity
 public class WordOfTheDay {
@@ -18,6 +22,10 @@ public class WordOfTheDay {
 	public String mainwordimageurl;
 	public String similarwordone;
 	public String similarwordtwo;
+	
+	@Enumerated(EnumType.STRING)
+	public Status wordstatus;
+	
 	public String timestamp;
 	public Long getId() {
 		return id;
@@ -73,6 +81,13 @@ public class WordOfTheDay {
 	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
 	}
+	public Status getWordstatus() {
+		return wordstatus;
+	}
+	public void setWordstatus(Status wordstatus) {
+		this.wordstatus = wordstatus;
+	}
+	
 	
 	
 }

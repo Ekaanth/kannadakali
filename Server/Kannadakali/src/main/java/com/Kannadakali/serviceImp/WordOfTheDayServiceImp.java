@@ -2,13 +2,13 @@ package com.Kannadakali.serviceImp;
 
 import java.text.SimpleDateFormat;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.Kannadakali.constant.Status;
 import com.Kannadakali.domain.WordOfTheDay;
 import com.Kannadakali.repo.WordOfTheDayRepo;
 import com.Kannadakali.service.WordOfTheDayService;
@@ -16,7 +16,7 @@ import com.Kannadakali.service.WordOfTheDayService;
 
 @Service
 @Transactional
-public class WordOfTheDayServiceImp implements WordOfTheDayService{
+public class WordOfTheDayServiceImp implements WordOfTheDayService {
 
 	@Autowired
 	WordOfTheDayRepo wordofthedayrepo;
@@ -36,5 +36,12 @@ public class WordOfTheDayServiceImp implements WordOfTheDayService{
 	public Collection<WordOfTheDay> findAll() {
 		Collection<WordOfTheDay> allWordsList = wordofthedayrepo.findAll();
 		return allWordsList;
+	}
+
+	@Override
+	public void delete(String date) {
+		WordOfTheDay deactivate  = wordofthedayrepo.findByTimestamp(date);
+		deactivate.setWordstatus(Status.INACTIVE);
+		wordofthedayrepo.save(deactivate);
 	}
 }

@@ -33,4 +33,6 @@ import com.Kannadakali.service.WordOfTheDayService;
 			WordOfTheDay resp = wordofthedayservice.getTodayWord();
 			return new ResponseEntity<WordOfTheDay>(resp, HttpStatus.OK);
 		}
+		
+		
 }

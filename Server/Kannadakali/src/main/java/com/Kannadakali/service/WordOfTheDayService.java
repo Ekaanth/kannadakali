@@ -12,4 +12,6 @@ public interface WordOfTheDayService {
 	public Collection<WordOfTheDay> findAll();
 	
 	public WordOfTheDay getTodayWord(); 
+	
+	public void delete(String date);
 }
