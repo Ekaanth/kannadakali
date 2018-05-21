@@ -29,4 +29,17 @@ public class EmailSenderService {
 				e.printStackTrace();
 			}
 		}
+		
+		public void wordOftheDaYEmail(String uemailid)throws MailException
+		{
+			try {
+				SimpleMailMessage mail=new SimpleMailMessage();
+				mail.setTo(uemailid);
+				mail.setSubject("Email Confirmation");
+				// add the confirmation templete here
+				javaMailSender.send(mail);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 }

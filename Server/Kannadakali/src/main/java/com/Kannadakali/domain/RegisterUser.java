@@ -7,8 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.amtica.constant.Gender;
-import com.amtica.constant.Status;
+import com.Kannadakali.constant.Gender;
+import com.Kannadakali.constant.Status;
 
 @Entity
 public class RegisterUser {

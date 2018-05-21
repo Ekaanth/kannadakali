@@ -1,4 +1,4 @@
-package com.amtica.config;
+package com.Kannadakali.config;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;

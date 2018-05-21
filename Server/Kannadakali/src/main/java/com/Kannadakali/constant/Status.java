@@ -1,4 +1,4 @@
-package com.amtica.constant;
+package com.Kannadakali.constant;
 
 public enum Status {
 

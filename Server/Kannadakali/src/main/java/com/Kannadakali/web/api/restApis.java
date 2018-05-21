@@ -107,5 +107,4 @@ public class restApis {
 			return new ResponseEntity<Pagevisit>(HttpStatus.BAD_REQUEST);
 		}
 	}
-
 }
