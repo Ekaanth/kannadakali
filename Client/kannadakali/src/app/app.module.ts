@@ -6,6 +6,8 @@ import { AppRoutes } from './app.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { AppService } from './app.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule ({
   declarations: [
@@ -14,11 +16,12 @@ import { CommonModule } from '@angular/common';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     ReactiveFormsModule,
     CommonModule,
     RouterModule.forRoot(AppRoutes , {useHash: true}),
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

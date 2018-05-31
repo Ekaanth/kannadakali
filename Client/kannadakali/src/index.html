@@ -47,4 +47,29 @@
 <!-- Custom scripts for this template -->
 <script src="/assets/js/freelancer.min.js"></script>
 
+
+<script>
+    $.getJSON('https://api.ipdata.co', function(data) {
+
+        $.post("/kannadakali/resources/api/pagevisit", {
+            "ip": data.ip,
+            "city": data.city,
+            "region": data.region,
+            "countryName": data.countryName,
+            "continentName": data.continentName,
+            "latitude": data.latitude,
+            "longitude": data.longitude,
+            "organisation": data.organisation,
+            "callingCode": data.callingCode,
+            "flag": data.flag,
+            "emojiFlag": data.emojiFlag,
+            "emojiUnicode": data.emojiUnicode,
+            "timestamp": data.time_zone.current_time
+        }, function(data, status) {
+            alert("Data: " + data + "\nStatus: " + status);
+        });
+
+    });
+</script>
+
 </html>

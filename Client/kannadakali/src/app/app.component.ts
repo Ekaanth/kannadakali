@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent implements OnInit {
   public mobileNumber = '^[789]+[0-9]{9,9}$';
   public name = '^[A-Za-z]{3,15}$';
   public years = '^[0-99]{0,2}$';
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder , private service: AppService) {}
 
   ngOnInit() {
     this.userdetails = this.fb.group({
@@ -28,5 +29,6 @@ export class AppComponent implements OnInit {
 
   userFormSubmit(userdetails) {
     console.log(userdetails);
+    this.service.registeruser(userdetails).subscribe(data => data , error => console.log(error));
   }
 }
